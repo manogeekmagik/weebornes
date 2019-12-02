@@ -1,6 +1,6 @@
 <?php
 
-require 'connectdb.php';
+require '../script-folder/connectdb.php';
 
 /**
  * Allows connection to the database and creation of a user account
