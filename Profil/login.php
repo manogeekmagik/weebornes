@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'connectdb.php';
+require '../script-folder/connectdb.php';
 
 if(isset($_POST['login']))
 {
