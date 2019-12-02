@@ -2,16 +2,16 @@
 try {
     require('../script-folder/connectdb.php');
     
-    $request = $dbh->prepare("INSERT INTO terminal(Nom, Prenom, Phone) VALUES (:nom, :prenom, :num)");   
+    $request = $connexion->prepare("INSERT INTO terminal(Nom) VALUES (:nom)");   
     $request->bindParam(':nom', $nom);
-    $request->bindParam(':prenom', $prenom);
-    $request->bindParam(':num', $phone);
+    /* $request->bindParam(':prenom', $prenom);
+    $request->bindParam(':num', $phone); */
 
     foreach ($data as $line){
     $nom = $line[0];
-    $prenom = $line[1];
-    $phone = $line[2];
-    $req->execute();
+    /* $prenom = $line[1];
+    $phone = $line[2]; */
+    $request->execute();
     }
     echo 'vous avez inséré votre CSV';
 
