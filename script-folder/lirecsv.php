@@ -1,6 +1,6 @@
 <?php
 try {
-    $filename = 'data/bdd-bornes.csv'; // ici j'appele le fichier excel 
+    $filename = '../data/bdd-bornes.csv'; // ici j'appele le fichier excel 
     
     // creation variable du tableau
     $excel_array = []; 
@@ -13,7 +13,8 @@ try {
         while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) 
         {
         // Each individual array is being pushed into the nested array
-        $excel_array[] = $data;		
+        $excel_array[] = $data;	
+        var_dump($excel_array);
         }
 
         // Close the file
