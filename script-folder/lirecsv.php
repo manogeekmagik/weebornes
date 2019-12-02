@@ -14,7 +14,7 @@ try {
         {
         // Each individual array is being pushed into the nested array
         $excel_array[] = $data;	
-        var_dump($excel_array);
+        /* var_dump($excel_array); */
         }
 
         // Close the file
@@ -26,5 +26,5 @@ try {
     catch(PDOException $error){
         echo 'Echec de la connexion : '.$error->getMessage();
     }
-    
+
 ?>

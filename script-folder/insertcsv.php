@@ -1,13 +1,14 @@
 <?php
 try {
     require('../script-folder/connectdb.php');
+    require('../script-folder/lirecsv.php');
     
-    $request = $connexion->prepare("INSERT INTO terminal(Nom) VALUES (:nom)");   
+    $request = $connexion->prepare("INSERT INTO company(nom) VALUES (:nom)");   
     $request->bindParam(':nom', $nom);
     /* $request->bindParam(':prenom', $prenom);
     $request->bindParam(':num', $phone); */
 
-    foreach ($data as $line){
+    foreach ($excel_array as $line){
     $nom = $line[0];
     /* $prenom = $line[1];
     $phone = $line[2]; */
