@@ -42,7 +42,7 @@
 
 <?php
 // Récupération & Insertion des données du formulaire contact dans la base de données
-
+require_once("script-folder/connectdb.php");
 
 if(isset($_POST['envoyer']))
 {
