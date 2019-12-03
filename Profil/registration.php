@@ -57,7 +57,21 @@ if(isset($_POST['registration']))
         */
         $erreur = "Tous les champs doivent être complétés.";
     }
+
+    if(isset($_FILES['avatar']) AND !empty($_FILES['avatar']['name']))
+    {
+        $tailleMax = 2097152;
+        $extensionValides = array('jpg','jpeg','gif','png');
+        if($_FILES['avatar']['size'] <= $tailleMax)
+        {
+            
+        }
+    }
+
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +96,7 @@ if(isset($_POST['registration']))
         <h1>Inscription</h1>
     </div>
 
-    <form method="POST" action="">
+    <form method="POST" action="" enctype="multipart/form-data">
 
         <div class="form-content mt-5">
 
@@ -100,6 +114,11 @@ if(isset($_POST['registration']))
                 <div class="form-group">
                     <input type="password" class="form-control" placeholder="Confirm Password *" id="password2" name="password2"/>
                 </div>
+                <div>
+                    <label>Avatar : </label>
+                    <input type="file" name="avatar" >
+                </div>
+                <br>
                 
             </div>
         </div>
