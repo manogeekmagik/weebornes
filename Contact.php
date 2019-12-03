@@ -70,7 +70,7 @@ if(isset($_POST['envoyer']))
   $email = htmlentities($connexion->quote($_POST['email']));
   $texte = htmlentities($connexion->quote($_POST['message']));
 
-
+  $request = $connexion->query("INSERT INTO form VALUE('', $nom, $prenom, $email, $texte)");
 
 }
 else {
