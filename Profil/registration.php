@@ -31,7 +31,7 @@ if(isset($_POST['registration']))
             {
                 $insertusers = $connexion->prepare("INSERT INTO users (pseudo,email, mot_de_passe) VALUES (?, ?, ?)");
                 $insertusers->execute(array($pseudo, $mail, $password));
-                $erreur = "Votre compte a bien été crée. <a href=\"login.php\">Me connecter</a>";
+                $erreur = "Votre compte a bien été crée. <a href=\"../Front/frontwebornes/index.php\">Me connecter</a>";
                 
             }
             else
@@ -64,7 +64,33 @@ if(isset($_POST['registration']))
         $extensionValides = array('jpg','jpeg','gif','png');
         if($_FILES['avatar']['size'] <= $tailleMax)
         {
-            
+            $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.' ),1));
+            if(in_array($extensionUpload, $extensionValides))
+            {
+                $chemin = "weebornes/avatars/" .$_SESSION['id']. "." . $extensionUpload;
+                $resultat = move_uploaded_file($_FILES ['avatar']['tmp_name'],$chemin);
+                if($resultat)
+                {
+                    $upDateAvatar = $connexion->prepare('UPDATE users SET avatar = :avatar WHERE id = :id');
+                    $upDateAvatar->execute(array(
+                        'avatar' => $_SESSION['id']. "." . $extensionUpload,
+                        'id'=> $_SESSION['id']
+
+                    ));
+                }
+                else
+                {
+                    $msg = "Erreur de téléchargement.";
+                }
+            }
+            else
+            {
+                $msg = "Votre photo de profil doit être au format JPG, JPEG, GIF et PNG.";
+            }
+        }
+        else
+        {
+            $msg = "Votre photo de profil ne doit pas dépasser 2MO.";
         }
     }
 

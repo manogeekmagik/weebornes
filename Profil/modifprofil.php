@@ -3,18 +3,40 @@ session_start();
 
 require '../script-folder/connectdb.php';
 
-if(isset($_SESSION['id']) )
+if(isset($_SESSION['id']))
 {
     $requser = $connexion->prepare("SELECT * FROM users WHERE id = ? ");
     $requser->execute(array($_SESSION['id']));
     $user = $requser->fetch();
 
-    if(isset($_POST['newpseudo']) AND !empty($_POST['newpseudo']) AND $_POST['newpseudo'] != $user['pseudo'] );
+    if(isset($_POST['newpseudo']) AND !empty($_POST['newpseudo']) AND $_POST['newpseudo'] != $user['pseudo'] )
     {
-        /* $newpseudo = htmlspecialchars($_POST['pseudo']); */
-        $insertpseudo = $connexion->prepare("UPDATE users SET pseudo = ? WHERE users.id = ?");
+        $newpseudo = htmlspecialchars($_POST['newpseudo']);
+        $insertpseudo = $connexion->prepare("UPDATE users SET pseudo = ? WHERE id = ?");
         $insertpseudo->execute(array($newpseudo, $_SESSION['id']));
-       /*  header('Location: moncompte.php?id='.$_SESSION['id']); */
+        header('Location: moncompte.php?id='.$_SESSION['id']);
+    }
+    if(isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $user['mail'] )
+    {
+        $newmail = htmlspecialchars($_POST['newmail']);
+        $insertmail = $connexion->prepare("UPDATE users SET email = ? WHERE id = ?");
+        $insertmail->execute(array($newmail, $_SESSION['id']));
+        header('Location: moncompte.php?id='.$_SESSION['id']);
+    }
+    if(isset($_POST['newpassword1']) AND !empty($_POST['newpassword1']) AND isset($_POST['newpassword2']) AND !empty($_POST['newpassword2']))
+    {
+        $mdp1 = sha1($_POST['newpassword1']);
+        $mdp2 = sha1($_POST['newpassword2']);
+        if($mdp1 == $mdp2) 
+        {
+        $insertmdp = $connexion->prepare("UPDATE users SET mot_de_passe = ? WHERE id = ?");
+        $insertmdp->execute(array($mdp1, $_SESSION['id']));
+        header('Location: moncompte.php?id='.$_SESSION['id']);
+        }
+        else
+        {
+            $msg = "Vos 2 mots de passe ne sont pas identiques.";
+        }
     }
 
 ?>
@@ -52,11 +74,11 @@ if(isset($_SESSION['id']) )
                     <label>Adresse mail : </label>
                     <input type="mail" name="newmail" placeholder="Mail" id="newmail" value="<?php echo $user['email']; ?>" class="form-control" /><br>
                     <label>Nouveau mot de passe : </label>
-                    <input type="password" name="newpassword1" placeholder="Entrer votre nouveau mot de passe" id="newpassword1"  class="form-control"/><br>
+                    <input type="password" name="newpassword1" placeholder="Entrer votre nouveau mot de passe" id="password1"  class="form-control"/><br>
                     <label>Confirmer votre mot de passe : </label>
-                    <input type="password" name="newpassword2" placeholder="Confirmer le mot de passe" id="newpassword2"  class="form-control"/><br>
+                    <input type="password" name="newpassword2" placeholder="Confirmer le mot de passe" id="password2"  class="form-control"/><br>
                     <label>Modifier votre avatar : </label>
-                    <input type="img" name="newavatar" placeholder="Avatar" id="newavatar"  class="form-control"/><br>
+                    <input type="img" name="newavatar" placeholder="avatar" id="newavatar"  class="form-control"/><br>
                     
                 </div>
             </div>
