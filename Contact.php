@@ -41,17 +41,42 @@
 </div>
 
 <?php
-// Récupération & Insertion des données du formulaire contact dans la base de données
-require_once("script-folder/connectdb.php");
 
+try {
+  // connexion à la base de donnée.
+  require_once("script-folder/connectdb.php");
+  
+  // création de la table form
+
+  $request = "CREATE TABLE IF NOT EXISTS form(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR (255),
+    prenom VARCHAR (255),
+    email VARCHAR (255),
+    texte VARCHAR (500)
+)";
+  $connexion->exec($request);
+
+
+} catch (PDOException $error) {
+  die($error);
+}
+
+// Récupération & Insertion des données du formulaire contact dans la base de données
 if(isset($_POST['envoyer']))
 {
+  $nom = htmlentities($connexion->quote($_POST['nom']));
+  $prenom = htmlentities($connexion->quote($_POST['prenom']));
+  $email = htmlentities($connexion->quote($_POST['email']));
+  $texte = htmlentities($connexion->quote($_POST['message']));
+
+
 
 }
 else {
   echo "Vous n'avez pas envoyé votre message";
 }
-
+ 
 ?>
 
 
