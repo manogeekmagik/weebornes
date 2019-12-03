@@ -64,7 +64,32 @@ if(isset($_POST['registration']))
         $extensionValides = array('jpg','jpeg','gif','png');
         if($_FILES['avatar']['size'] <= $tailleMax)
         {
-            
+            $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.' ), 1));
+            if(in_array($extensionUpload, $extensionValides))
+            {
+                $chemin = "Avatars/".$_SESSION['id'].".".$extensionUpload;
+                $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'],$chemin);
+                if($resultat)
+                {
+                    $upDateAvatar = $connexion->prepare('UPDATE users set avatar = :avatar WHERE id = id');
+                    $upDateAvatar->execute(array(
+                        'avatar' => $_SESSION['id']. "." . $extensionUpload,
+                        'id' => $_SESSION['id'],
+                    ));
+                }
+                else
+                {
+                    $msg = "Erreur téléchargement de la photo.";
+                }
+            }
+            else
+            {
+                $msg = "Votre photo de profil doit être au format JPG, JPEG, GIf ou PNG.";
+            }
+        }
+        else
+        {
+            $msg = "Votre photo de profil ne doit pas dépasser 2MO.";
         }
     }
 
