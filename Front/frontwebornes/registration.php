@@ -58,6 +58,13 @@ require_once '../../Profil/register.php';
     <br>
     <br>
 
+    <?php
+        if(isset($erreur))
+        {
+            echo $erreur;
+        }
+    ?>
+
 </div>
 
 

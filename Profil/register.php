@@ -29,7 +29,7 @@ if(isset($_POST['registration']))
             {
                 $insertusers = $connexion->prepare("INSERT INTO users (pseudo,email, mot_de_passe) VALUES (?, ?, ?)");
                 $insertusers->execute(array($pseudo, $mail, $password));
-                $erreur = "Votre compte a bien été crée. <a href=\"../Front/frontwebornes/index.php\">Me connecter</a>";
+                $erreur = 'Votre compte a bien été crée. <a href="index.php">Me connecter</a>';
                 
             }
             else

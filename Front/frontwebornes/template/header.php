@@ -51,7 +51,7 @@
       <h5 class=""><a class="navbar-brand badge badge-pill  badge-info text-white" href="Contact.php">Nous contacter</a></h5>
       </li>
       <li class="nav-item">
-      <h5><a class="navbar-brand badge badge-pill  badge-info text-white" href="moncompteadmin.php">Mon compte</a></h5>
+      <h5><a class="navbar-brand badge badge-pill  badge-info text-white" href="moncompteutilisateur.php">Mon compte</a></h5>
       </li>
     </ul>
   </div>
