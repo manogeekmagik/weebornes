@@ -1,4 +1,5 @@
 <?php
+
 //Doctype HTML
     include("template/doctype.php");   
 
@@ -7,41 +8,38 @@
 
     require_once '../../script-csv/connectdb.php';
 
-    if(isset($_POST['id']) AND $_POST['id'] > 0 )
-    {
-        $getid = intval ($_POST['id']);
-        $requser = $connexion->prepare('SELECT * FROM users WHERE id = ?');
-        $requser->execute(array($getid));
-        $userinfo = $requser->fetch();
-    ?>
-    
-   
+    require_once '../../Profil/login.php';
+
+    if(isset($_GET['id']) AND $_GET['id'] > 0 )
+{
+    $getid = intval ($_GET['id']);
+    $requser = $connexion->prepare('SELECT * FROM users WHERE id = ?');
+    $requser->execute(array($getid));
+    $userinfo = $requser->fetch();
+
+
+?>
+
 
 
     <h2 class="text-center"><span class= "mt-3 badge badge-success">Mon compte</span></h2>
 
     <h5 class="text-center mt-3"><span class= "badge badge-success">Mon profil</span></h5>
 
-    
-
-
     <div class="container emp-profile">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                    <?php echo $userinfo ['avatar']?>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>                   
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="profile-head">
-                    <h5><?php echo $userinfo ['pseudo']?></h5>       
+                    <h5></h5>       
                 </div>
             </div>
             <div class="col-md-2">
-                <?php if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']){?>
                     <a href="editprofile.php"><button type="button" href="editprofil.php" class="btn btn-success border border-white">Modifier mon profil</button></a>
-                <?php }?>
             </div>
         </div>
 
@@ -56,7 +54,7 @@
                                     <label>Pseudo : </label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p><?php echo $userinfo ['pseudo']?></p>
+                                    <p></p>
                                 </div>
                             </div>
 
@@ -65,7 +63,7 @@
                                     <label>Email :</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p><?php echo $userinfo ['email']?></p>
+                                    <p></p>
                                 </div>
                             </div>
 
@@ -74,14 +72,13 @@
                                     <label>Ma fonction :</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p><?php echo $userinfo ['roles_id']?></p>
+                                    <p></p>
                                 </div>
                             </div>
 
-                            <?php 
-                                if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']){?>
+                  
                                 <a href="deconnexion.php">Se déconnecter</a>
-                            <?php }?>
+                          
 
                         </div>
                     </div>
@@ -89,8 +86,9 @@
             </div>         
         </div>
     </div>
-<?php
-    } 
+    <?php
+}
+
 ?>
 
     <h5 class="text-center"><span class= "mt-2 badge badge-success">Mes commentaires</span></h5>

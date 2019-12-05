@@ -9,7 +9,7 @@
 <!-- Login -->
 <div class="d-flex justify-content-end">
 
-    <form class="form-horizontal formlogin" action="" method="POST">
+    <form class="form-horizontal formlogin" action="moncompteutilisateur.php" method="POST">
       <div>
           <label for="username">Compte:</label>
           <input type="text" id="username" name="username" required>
@@ -21,7 +21,7 @@
                  required>
       </div>
       <button type="submit" class="btn btn-success border border-white">Déconnexion</button><h6>Doit apparaitre quand connecter</h6>
-      <button type="submit" class="btn btn-success border border-white"><a href="moncompteutilisateur.php">Connexion</a></button>
+      <button type="submit" class="btn btn-success border border-white">Connexion</button>
       
       <a class="navbar-brand badge badge-success border border-white text-white" href="registration.php">Créer mon compte</a>
     </form>
