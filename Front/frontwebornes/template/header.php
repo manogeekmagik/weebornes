@@ -21,7 +21,7 @@
                  required>
       </div>
       <button type="submit" class="btn btn-success border border-white">Déconnexion</button><h6>Doit apparaitre quand connecter</h6>
-      <button type="submit" class="btn btn-success border border-white">Connexion</button>
+      <button type="submit" class="btn btn-success border border-white"><a href="moncompteutilisateur.php">Connexion</a></button>
       
       <a class="navbar-brand badge badge-success border border-white text-white" href="registration.php">Créer mon compte</a>
     </form>
