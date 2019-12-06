@@ -9,7 +9,7 @@
 <!-- Login -->
 <div class="d-flex justify-content-end">
 
-    <form class="form-horizontal formlogin" action="" method="POST">
+    <form class="form-horizontal formlogin" action="moncompteutilisateur.php" method="POST">
       <div>
           <label for="username">Compte:</label>
           <input type="text" id="username" name="username" required>
@@ -51,7 +51,7 @@
       <h5 class=""><a class="navbar-brand badge badge-pill  badge-info text-white" href="Contact.php">Nous contacter</a></h5>
       </li>
       <li class="nav-item">
-      <h5><a class="navbar-brand badge badge-pill  badge-info text-white" href="moncompteadmin.php">Mon compte</a></h5>
+      <h5><a class="navbar-brand badge badge-pill  badge-info text-white" href="moncompteutilisateur.php">Mon compte</a></h5>
       </li>
     </ul>
   </div>
