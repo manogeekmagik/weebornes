@@ -17,27 +17,27 @@
 
 
 <div class="container mt-3"> 
-  <form class="form-horizontal" action="" method="POST">
+  <form class="form-horizontal" action="messagecontact.php" method="POST">
 
 
       <div class="form-group text-center">
           <label class="control-label col-sm-2 badge badge-pill badge-success text-white" for="nom">Nom:</label>        
-            <input type="nom" class="form-control border border-info bg-light mt-1" id="nom" placeholder="Nom" name="nom">
+            <input type="nom" class="form-control border border-info bg-light mt-1" id="nom" placeholder="Nom" name="nom" required>
       </div>
 
       <div class="form-group text-center">
         <label class="control-label col-sm-2 badge badge-pill badge-success text-white" for="prenom">Prénom:</label>  
-        <input type="prenom" class="form-control border border-info bg-light mt-1" id="prenom" placeholder="Prénom" name="prenom">
+        <input type="prenom" class="form-control border border-info bg-light mt-1" id="prenom" placeholder="Prénom" name="prenom" required>
       </div>
 
       <div class="form-group text-center">
         <label class="control-label col-sm-2 badge badge-pill badge-success text-white" for="email">Email:</label>
-        <input type="email" class="form-control border border-info bg-light mt-1" id="email" placeholder="Email" name="email">
+        <input type="email" class="form-control border border-info bg-light mt-1" id="email" placeholder="Email" name="email" required>
       </div>
 
       <div class="form-group text-center">
         <label class="control-label col-sm-2 badge badge-pill badge-success text-white" for="email">Message</label>
-        <textarea type="message" class="form-control border border-info bg-light mt-1" id="message" placeholder="Votre message ici" name="message"></textarea>
+        <textarea type="message" class="form-control border border-info bg-light mt-1" id="message" placeholder="Votre message ici" name="message" required></textarea>
       </div>
 
       <div class="d-flex flex-wrap justify-content-center">

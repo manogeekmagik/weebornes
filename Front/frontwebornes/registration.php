@@ -1,3 +1,5 @@
+
+
 <?php
 //Doctype HTML
     include("template/doctype.php");   
@@ -11,6 +13,15 @@ require_once '../../script-csv/connectdb.php';
  /** Integration of the registration script */    
 require_once '../../Profil/register.php';
 
+?>
+ 
+<?php
+/*Connection to the database */
+require_once '../../script-csv/connectdb.php';
+?>
+<?php
+ /* Integration of the registration script*/
+require_once '../../Profil/register.php';
 ?>
 
 <main>
@@ -64,7 +75,7 @@ require_once '../../Profil/register.php';
             echo $erreur;
         }
     ?>
-
+    
 </div>
 
 
