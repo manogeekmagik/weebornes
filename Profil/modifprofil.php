@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require '../script-folder/connectdb.php';
+require_once '../script-csv/connectdb.php';
 
 if(isset($_SESSION['id']))
 {

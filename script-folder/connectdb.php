@@ -10,7 +10,7 @@ try {
     $connexion = new PDO("mysql:host=$servername;dbname=webornes", $username,$password); 
     $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-/*     echo "Connexion à la base de donnée"; */
+    /* echo "Connexion à la base de donnée"; */
     
     }
     catch(PDOException $e){
