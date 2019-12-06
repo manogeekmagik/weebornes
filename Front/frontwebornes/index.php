@@ -6,6 +6,9 @@
 //header
     include("template/header.php");   
 ?>
+<?php
+require_once "../../script-csv/connectdb.php"
+?>
 
 <main>
 
@@ -26,7 +29,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModal3Label">Type de prise</h5>
+        <h5 class="modal-title " id="exampleModal3Label">Choisir le type de prise</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -34,16 +37,22 @@
 
       <div class="modal-body">
         <select class="mdb-select md-form">
-            <option class="text-centers" value="0" disabled selected>Type de prise</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-        </select>
+        <option value="" disabled selected>Type de prise</option>
+                <?php
+                $typedeprise = $connexion->prepare("SELECT * FROM outlet");
+                $executeIsOk = $typedeprise->execute();
+                
+                    while ($prise = $typedeprise->fetch()){
+
+                    echo '<option value="'.$prise["company_id"].'" >'.$prise["nom"].'</option>';
+                    }
+                    ?>
+            </select>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -53,11 +62,17 @@
 <!-- Select condition d'accès -->
 
     <select class="dropdown rounded bg-info text-white">
-     
-      <option class="text-white">Condition d'accès</option>
-      <option value="1">Payant</option>
-      <option value="2">Gratuit</option>
-    </select>
+        <option value="" disabled selected>Conditions d'accès</option>
+                <?php
+                $condition = $connexion->prepare("SELECT * FROM access");
+                $executeIsOk = $condition->execute();
+                
+                    while ($cond = $condition->fetch()){
+
+                    echo '<option value="'.$cond["access_id"].'" >'.$cond["nom"].'</option>';
+                    }
+                    ?>
+            </select>
 </div>
 
 <div class="text-center"><h5><a href=><img src="img/localisermoi.png" alt="logo localisation"></a></h5></div>
@@ -92,7 +107,7 @@
                   <ul class="list-group">
                     <li class="list-group-item">Puissance délivré :</li>
                     <li class="list-group-item">Type de prise :</li>
-                    <li class="list-group-item">Condition d'accès</li>
+                    <li class="list-group-item">Condition d'accès :</li>
                   </ul> 
                 </div>
             </div>
@@ -115,7 +130,7 @@
 <h4 class="text-center">Espace commentaire a faire plus tard + boutton itineraire (option)</h4>    
           
       
-
+<h4 class="text-center">Espace commentaire a faire plus tard + boutton itineraire (option)</h4>  
 
 
 
