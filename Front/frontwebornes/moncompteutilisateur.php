@@ -1,11 +1,16 @@
 <?php
 //Doctype HTML
     include("template/doctype.php");   
-?>
 
-<?php
 //header
     include("template/header.php");   
+
+/**Connection to the database */
+require_once '../../script-csv/connectdb.php';
+
+ /** Integration of the registration script */    
+require_once '../../Profil/moncompte.php';
+
 ?>
 
 <main>
@@ -20,6 +25,7 @@
                     <div class="col-md-4">
                         <div class="profile-img">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <?php echo $userinfo ['avatar']?>
 <!--                             <div class="file btn btn-lg btn-primary">
                                 Modifier sa photo
                                 <input type="file" name="file"/>
@@ -29,7 +35,7 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                    Insert bdd
+                                    <?php echo $userinfo ['pseudo']?>
                                     </h5>
                         </div>
                     </div>
@@ -45,10 +51,10 @@
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Pseudo :</label>
+                                                <label>Pseudo : </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Insert bdd</p>
+                                                <p><?php echo $userinfo ['pseudo']?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -56,7 +62,7 @@
                                                 <label>Email :</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Insert bdd</p>
+                                                <p><?php echo $userinfo ['email']?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -64,9 +70,14 @@
                                                 <label>Ma fonction :</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Insert bdd</p>
+                                                <p><?php echo $userinfo ['roles_id']?></p>
                                             </div>
                                         </div>
+                                        <?php
+                                        if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']);
+                                        {
+                                        }
+                                        ?>
                             </div>
                         </div>
                     </div>
@@ -100,10 +111,7 @@
  
 </main>
 
-
-
-
 <?php
 //footer
-    require_once("template/footer.php");   
+   include("template/footer.php");   
 ?>

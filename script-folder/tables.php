@@ -114,7 +114,7 @@
         pseudo VARCHAR(200),
         email VARCHAR(200),
         mot_de_passe VARCHAR(100),
-        avatar TEXT(250),
+        avatar VARCHAR(250),
         roles_id INT,
         PRIMARY KEY (id),
         FOREIGN KEY (roles_id) REFERENCES roles(id)

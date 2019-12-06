@@ -7,6 +7,9 @@
 //header
     include("template/header.php");   
 ?>
+<?php
+require_once "../../script-csv/connectdb.php"
+?>
 
 <main>
 
@@ -230,9 +233,15 @@
         <td>
             <select class="custom-select border border-info bg-light"  required>
                 <option value="">--Les fonctions--</option>
-                <option value="1">Admin</option>
-                <option value="2">Modérateur</option>
-                <option value="3">utilisateurs</option>
+                <?php
+                $roles = $connexion->prepare("SELECT * FROM roles");
+                $executeIsOk = $roles->execute();
+                
+                    while ($ro = $roles->fetch()){
+
+                    echo '<option value="'.$ro["roles_id"].'" >'.$ro["nom_du_role"].'</option>';
+                    }
+                    ?>
             </select>
 
             <div class="d-flex justify-content-center">
@@ -250,9 +259,15 @@
         
             <select class="custom-select border border-info bg-light"  required>
                 <option value="">--Les fonctions--</option>
-                <option value="1">Admin</option>
-                <option value="2">Modérateur</option>
-                <option value="3">utilisateurs</option>
+                <?php
+                $roles = $connexion->prepare("SELECT * FROM roles");
+                $executeIsOk = $roles->execute();
+                
+                    while ($ro = $roles->fetch()){
+
+                    echo '<option value="'.$ro["roles_id"].'" >'.$ro["nom_du_role"].'</option>';
+                    }
+                    ?>
             </select>
             
             <div class="d-flex justify-content-center">

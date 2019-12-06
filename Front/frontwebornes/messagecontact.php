@@ -47,7 +47,7 @@ else{
 
 }
 
-$retour = mail('dimitri.bonnet18@gmail.com', 'Envoi depuis la page Contact webornes', $_POST['message'], 'From : webmaster@monsite.fr');
+$retour = mail('dimitri.bonnet18@gmail.com', 'Envoi depuis la page Contact Webornes', $_POST['message'], 'From : webmaster@monsite.fr');
     
 ?>
 
