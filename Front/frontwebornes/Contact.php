@@ -17,7 +17,7 @@
 
 
 <div class="container mt-3"> 
-  <form class="form-horizontal" action="" method="POST">
+  <form class="form-horizontal" action="messagecontact.php" method="POST">
 
 
       <div class="form-group text-center">
