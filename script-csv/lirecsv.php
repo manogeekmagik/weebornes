@@ -1,6 +1,5 @@
 <?php
- 
- 
+
 try {
     $filename = 'depreg.csv'; // ici j'appele le fichier excel 
     
@@ -33,7 +32,7 @@ try {
             echo 'Echec de la connexion : '.$e->getMessage();
     
     }
-    
+
 /*  var_dump($excel_array);  */
 
 
@@ -87,7 +86,7 @@ try {
 } 
   catch (PDOException $e){
   die ("erreur de creation : ". $e);
-} 
+}  
 
 // ouverture 2eme fichier csv 
 try {
@@ -194,3 +193,6 @@ try {
     catch (PDOException $e){
     die ("erreur de creation : ". $e);
   } 
+
+
+ 
