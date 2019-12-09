@@ -37,7 +37,7 @@ require_once "../../script-csv/connectdb.php"
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-success">Se connecter</button>
+        <button class="btn btn-success">connexion</button>
       </div>
     </div>
   </div>
