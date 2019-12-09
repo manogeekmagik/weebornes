@@ -17,6 +17,7 @@ if(isset($_POST['registration']))
     $password = sha1($_POST['password']);
     $password2 = sha1($_POST['password2']);
     $avatar = $_FILES['avatar']['name'];
+    $role = '2';
 
 
 
@@ -32,8 +33,8 @@ if(isset($_POST['registration']))
     {          
     if($password == $password2)
     {
-        $insertusers = $connexion->prepare("INSERT INTO users (pseudo,email, mot_de_passe,avatar) VALUES (?, ?, ?, ?)");
-        $insertusers->execute(array($pseudo, $mail, $password, $avatar));
+        $insertusers = $connexion->prepare("INSERT INTO users (pseudo,email, mot_de_passe,avatar, roles_id) VALUES (?, ?, ?, ?,?)");
+        $insertusers->execute(array($pseudo, $mail, $password, $avatar,$role));
         $erreur = 'Votre compte a bien été crée. <a href="moncompteutilisateur.php">Me connecter</a>';   /**Modifier ici quand modal effectué */ 
     }
     else
@@ -60,9 +61,6 @@ if(isset($_POST['registration']))
     */
     $erreur = "Tous les champs doivent être complétés.";
     }
-
-
-
 }
 
 
