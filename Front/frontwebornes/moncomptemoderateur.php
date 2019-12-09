@@ -5,7 +5,9 @@
 
 <?php
 //header
-    include("template/header.php");   
+    include("template/header.php");  
+    
+    require_once '../../script-csv/connectdb.php';
 ?>
 
 <main>

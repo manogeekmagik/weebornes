@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 //Doctype HTML
     include("template/doctype.php");   
@@ -8,19 +9,9 @@
 
     require_once '../../script-csv/connectdb.php';
 
-    require_once '../../Profil/login.php';
-
-    if(isset($_GET['id']) AND $_GET['id'] > 0 )
-{
-    $getid = intval ($_GET['id']);
-    $requser = $connexion->prepare('SELECT * FROM users WHERE id = ?');
-    $requser->execute(array($getid));
-    $userinfo = $requser->fetch();
-
+    require_once '../../Profil/deconnexion.php';
 
 ?>
-
-
 
     <h2 class="text-center"><span class= "mt-3 badge badge-success">Mon compte</span></h2>
 
@@ -77,7 +68,7 @@
                             </div>
 
                   
-                                <a href="deconnexion.php">Se déconnecter</a>
+                                <a href='index.php'>Se déconnecter</a>
                           
 
                         </div>
@@ -86,10 +77,8 @@
             </div>         
         </div>
     </div>
-    <?php
-}
+  
 
-?>
 
     <h5 class="text-center"><span class= "mt-2 badge badge-success">Mes commentaires</span></h5>
     

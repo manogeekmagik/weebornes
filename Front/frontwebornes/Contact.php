@@ -6,6 +6,8 @@
 <?php
 //header
     include("template/header.php");   
+
+    require_once '../../script-csv/connectdb.php';
 ?>
 <h2 class="text-center"><span class= "mt-3 badge badge-success">Nous contacter</span></h2>
 

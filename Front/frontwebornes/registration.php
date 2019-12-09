@@ -23,27 +23,27 @@ require_once '../../Profil/register.php';
         
     </div>
 
-    <form method="POST" action="" enctype="multipart/form-data">
+    <form method="POST" action="" enctype="multipart/form-data" autocomplete="off">
 
         <div class="form-content mt-5 ">
 
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="text" class="form-control border border-info bg-light" placeholder="Pseudo *" id="pseudo" name="pseudo" />
+                    <input type="text" class="form-control border border-info bg-light" placeholder="Pseudo *" name="pseudo" required />
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control border border-info bg-light" placeholder="Email *" id="mail" name="mail" />
+                    <input type="email" class="form-control border border-info bg-light" placeholder="Email *" name="mail" required/>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control border border-info bg-light" placeholder="Password *" id="password" name="password"/>
+                    <input type="password" class="form-control border border-info bg-light" placeholder="Password *"  name="password" autocomplete ="new-password" required/>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control border border-info bg-light" placeholder="Confirm Password *" id="password2" name="password2"/>
+                    <input type="password" class="form-control border border-info bg-light" placeholder="Confirm Password *"  name="password2" autocomplete ="new-password" required/>
                 </div>
                 <div>
-                    <h5><label class="badge badge-success">Avatar: </label></h5>
-                    <input type="file" name="avatar" >
+                    <h4><label class="badge badge-success">Choisir un avatar: </label></h4>
+                    <input type="file" name="avatar" reuiqred >
                 </div>
                 <br>
                 
@@ -58,12 +58,14 @@ require_once '../../Profil/register.php';
     <br>
     <br>
 
+    <div class="text-center">
     <?php
         if(isset($erreur))
         {
-            echo $erreur;
+            echo '<font color="red">' . $erreur."";
         }
     ?>
+    </div>
 
 </div>
 
