@@ -35,7 +35,7 @@ if(isset($_POST['registration']))
     {
         $insertusers = $connexion->prepare("INSERT INTO users (pseudo,email, mot_de_passe,avatar, roles_id) VALUES (?, ?, ?, ?,?)");
         $insertusers->execute(array($SESSION['pseudo'], $SESSION['mail'], $SESSION['password'], $SESSION['avatar'],$SESSION['role']));
-        $erreur = 'Votre compte a bien été crée. <a href="moncompteutilisateur.php">Me connecter</a>';   /**Modifier ici quand modal effectué */ 
+        $erreur = 'Votre compte a bien été crée. <a href="/Profil/login.php">Me connecter</a>';   /**Modifier ici quand modal effectué */ 
     }
     else
     {

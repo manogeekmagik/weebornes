@@ -1,23 +1,27 @@
 <?php
 
-session_start();
+require_once '../script-csv/connectdb.php';
+
 
 if(isset($_POST['login']))
 {
     $pseudoconnect = htmlspecialchars ($_POST['pseudoconnect']);
-    $passwordconnect = sha1($_POST['passwordconnect']);
+    $mdpconnect = sha1($_POST['mdpconnect']);
 
-    if(!empty($pseudoconnect) AND !empty($passwordconnect))
+    if(!empty($pseudoconnect) AND !empty($mdpconnect))
     {
-        $requser = $connexion->prepare("SELECT * FROM users WHERE pseudo = ? AND mot_de_passe = ?");
-        $requser->execute(array($pseudoconnect, $passwordconnect));
-        $userexist = $requser->rowCount();
+        $requser = $connexion->prepare("SELECT * 
+        FROM users WHERE pseudo = ?, mot_de_passe = ? ");
+        $requser->execute(array($pseudoconnect,$mdpconnect));
+        $userexist = $requser->rowcount();
         if($userexist == 1)
         {
-            $userinfo = $requser->fetch();
+            $userexist = $requser->fetch();
             $_SESSION['id'] = $userinfo['id'];
             $_SESSION['pseudo'] = $userinfo['pseudo'];
-            header("Location: index.php?id=".$_SESSION['id']);
+            $_SESSION['mot_de_passe'] = $userinfo['mot_de_passe'];
+            header("Location: ../../frontwebornes/moncompteutilisateur.php?id=".$_SESSION['id']);
+          
         }
         else
         {
@@ -33,7 +37,7 @@ if(isset($_POST['login']))
 ?>
 
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -75,7 +79,7 @@ if(isset($_POST['login']))
     </form>
 
     <br>
-    <br> -->
+    <br> 
     <?php
         if(isset($erreur))
         {
@@ -83,9 +87,9 @@ if(isset($_POST['login']))
            
         }
     ?>
-<!-- 
+
 </div>
 
 
 </body>
-</html> -->
+</html>
