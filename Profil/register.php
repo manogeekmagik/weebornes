@@ -12,12 +12,12 @@ if(isset($_POST['registration']))
  * and secure user data
  */
 
-    $pseudo = htmlspecialchars($_POST['pseudo']);
-    $mail = htmlspecialchars($_POST['mail']);
-    $password = sha1($_POST['password']);
-    $password2 = sha1($_POST['password2']);
-    $avatar = $_FILES['avatar']['name'];
-    $role = '2';
+    $SESSION['pseudo'] = htmlspecialchars($_POST['pseudo']);
+    $SESSION['mail'] = htmlspecialchars($_POST['mail']);
+    $SESSION['password'] = sha1($_POST['password']);
+    $SESSION['password2'] = sha1($_POST['password2']);
+    $SESSION['avatar'] = $_FILES['avatar']['name'];
+    $SESSION['role'] = '2';
 
 
 
@@ -27,14 +27,14 @@ if(isset($_POST['registration']))
 
     if(!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['password']) AND !empty($_POST['password2']) AND !empty($_FILES['avatar']))
     {
-    $pseudolength = strlen($pseudo);
+    $pseudolength = strlen($SESSION['pseudo']);
 
     if($pseudolength <= 255)
     {          
-    if($password == $password2)
+    if($SESSION['password'] == $SESSION['password2'])
     {
         $insertusers = $connexion->prepare("INSERT INTO users (pseudo,email, mot_de_passe,avatar, roles_id) VALUES (?, ?, ?, ?,?)");
-        $insertusers->execute(array($pseudo, $mail, $password, $avatar,$role));
+        $insertusers->execute(array($SESSION['pseudo'], $SESSION['mail'], $SESSION['password'], $SESSION['avatar'],$SESSION['role']));
         $erreur = 'Votre compte a bien été crée. <a href="moncompteutilisateur.php">Me connecter</a>';   /**Modifier ici quand modal effectué */ 
     }
     else
