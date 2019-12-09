@@ -152,7 +152,7 @@ require_once "../../script-csv/connectdb.php"
 
       </div>
             <div class="d-flex justify-content-center mb-2">
-                <div class="btn-group border border-white w-50" role="group">
+                <div class="btn-group border border-white w-9" role="group">
                     <button type="button" class="btn btn-success">Valider</button>
                     <button type="button" class="btn btn-danger">Refuser</button>
                 </div>
