@@ -1,14 +1,14 @@
 <?php
 
 //Doctype HTML
-    include("template/doctype.php");   
+    include("../template/doctype.php");   
 
 //header
-    include("template/header.php");   
+    include("../template/header.php");   
 
-    require_once '../../script-csv/connectdb.php';
+    require_once '../script-csv/connectdb.php';
 
-    require_once '../../Profil/login.php';
+    require_once 'Profil/login.php';
 
     if(isset($_GET['id']) AND $_GET['id'] > 0 )
 {
@@ -116,5 +116,5 @@
 
 <?php
 //footer
-   include("template/footer.php");   
+   include("../template/footer.php");   
 ?>

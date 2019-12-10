@@ -7,7 +7,7 @@
     include("template/header2.php");   
 ?>
 <?php
-require_once "../../script-csv/connectdb.php"
+require_once "script-csv/connectdb.php"
 ?>
 
 <main>

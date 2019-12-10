@@ -2,16 +2,16 @@
 
 <?php
 //Doctype HTML
-    include("template/doctype.php");   
+    include("../template/doctype.php");   
 
 //header
-    include("template/header2.php"); 
+    include("../template/header2.php"); 
 
 /**Connection to the database */
-require_once '../../script-csv/connectdb.php';
+require_once '../script-csv/connectdb.php';
 
  /** Integration of the registration script */    
-require_once '../../Profil/register.php';
+require_once 'Profil/register.php';
 
 ?>
  
@@ -82,5 +82,5 @@ require_once '../../Profil/register.php';
 </main>
 <?php
 //footer
-    include("template/footer.php");   
+    include("template/footer.php"); 
 ?>
