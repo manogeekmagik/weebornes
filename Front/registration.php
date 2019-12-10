@@ -61,9 +61,9 @@ require_once '../../Profil/register.php';
             </div>
         </div>
 
-<div class="d-flex justify-content-center">
-        <input type="submit" name="registration" value="Enregistrer" class="btn btn-success">
-</div>
+        <div class="d-flex justify-content-center">
+                <input type="submit" name="registration" value="Enregistrer" class="btn btn-success">
+        </div>
 
     </form>
     <br>
