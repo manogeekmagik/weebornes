@@ -138,6 +138,16 @@ border-radius: .25rem;
   color: #0062cc;
 }
 
+/*Espace commentaire*/
 
+/*faire disparaitre "ajouter un commentaire*/
+
+ #divcommentaire{
+display: none;
+}
+
+#infoborne{
+display: none;
+}
 
 
