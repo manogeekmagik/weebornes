@@ -111,7 +111,7 @@ require_once "../../script-csv/connectdb.php"
     </table>
     </div>
 
-    <h5 class="text-center"><span class= " mt-2 badge badge-success">Les nouvelle(s) borne(s)</span></h5>
+    <h5 class="text-center"><span class= " mt-2 badge badge-success">Les nouvelle(s) borne(s) [Doit apparaitre si borne ajouté]</span></h5>
 
 <div class="d-flex justify-content-center mt-2">
   <div class="bg-light w-75 border border-info rounded">
