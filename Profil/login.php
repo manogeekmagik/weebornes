@@ -1,38 +1,46 @@
 <?php
 
-require_once '../script-csv/connectdb.php';
+require_once '../../script-csv/connectdb.php';
 
 
 if(isset($_POST['login']))
 {
-    $pseudoconnect = htmlspecialchars ($_POST['pseudoconnect']);
-    $mdpconnect = sha1($_POST['mdpconnect']);
-
-    if(!empty($pseudoconnect) AND !empty($mdpconnect))
-    {
-        $requser = $connexion->prepare("SELECT * 
-        FROM users WHERE pseudo = ?, mot_de_passe = ? ");
-        $requser->execute(array($pseudoconnect,$mdpconnect));
-        $userexist = $requser->rowcount();
-        if($userexist == 1)
-        {
-            $userexist = $requser->fetch();
-            $_SESSION['id'] = $userinfo['id'];
-            $_SESSION['pseudo'] = $userinfo['pseudo'];
-            $_SESSION['mot_de_passe'] = $userinfo['mot_de_passe'];
-            header("Location: ../../frontwebornes/moncompteutilisateur.php?id=".$_SESSION['id']);
-          
-        }
-        else
-        {
-            $erreur = "Pseudo ou mot de passe incorrect.";
-        }
-    }
-    else
-    {
-        $erreur = "Tous les champs doivent être complétés.";
-    }
+   
+    $pseudoConnect=htmlentities(trim($_POST['pseudoConnect']));
+    $passwordConnect=htmlentities(trim($_POST['passwordConnect']));
+    $password2Connect=htmlentities(trim($_POST['password2Connect']));
+    
+        if ($pseudoConnect&&$passwordConnect&&$password2Connect)
+    
+       {
+            if($passwordConnect==$password2Connect)
+    
+            {
+                
+             $passwordConnect=md5($passwordConnect);
+            
+             $reg=$connexion("SELECT * FROM users WHERE username='$username'");
+             $rows=mysql_num_rows($reg);
+    
+                   if ($rows==0)
+    
+                   {
+    
+             $query=mysql_query("INSERT INTO users VALUES('','$username','$password')"); 
+             die("Inscription terminée<a href='login.php'>Connectez</a>vous.");
+             
+                 }else echo "Pseudo déja pris. Choisissez un autre Pseudo";
+    
+            } else echo "Les deux password doivent être indentiques";
+    
+        }else echo "Vous devez remplir tous les champs du formulaire";
+    
 }
+    
+    
+    ?>
+
+    
 
 ?>
 
@@ -70,7 +78,11 @@ if(isset($_POST['login']))
               
                 <div class="form-group">
                     <input type="password" class="form-control" placeholder="Password *" id="passwordconnect" name="passwordconnect"/>
-                </div>                
+                </div>  
+
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password2 *" id="passwordconnect2" name="passwordconnect2"/>
+                </div>               
             </div>
         </div>
 
