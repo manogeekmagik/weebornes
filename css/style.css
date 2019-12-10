@@ -32,9 +32,15 @@ right: 20px;
 } 
 
 /*button create*/
+.badge{
+background-color: ;
+}
+
 .comment{
-width: 75%;
+width: 45%;
 margin: auto;
+border-collapse: collapse;
+border: 1px solid black;
 }
 
 .btn{
@@ -46,6 +52,8 @@ border-radius: .25rem;
 /* css profile*/
 .emp-profile{
   padding: 1%;
+  margin-top: 3%;
+  margin-bottom: 3%;
   border-radius: 0.5rem;
   background: rgb(23, 162, 184);
 }
@@ -136,16 +144,6 @@ border-radius: .25rem;
   color: #0062cc;
 }
 
-/*Espace commentaire*/
 
-/*faire disparaitre "ajouter un commentaire*/
-
- #divcommentaire{
-display: none;
-}
-
-#infoborne{
-display: none;
-}
 
 

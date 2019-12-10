@@ -1,7 +1,6 @@
 <?php
-session_start();
 
-require '../script-folder/connectdb.php';
+session_start();
 
 if(isset($_POST['login']))
 {
@@ -18,7 +17,7 @@ if(isset($_POST['login']))
             $userinfo = $requser->fetch();
             $_SESSION['id'] = $userinfo['id'];
             $_SESSION['pseudo'] = $userinfo['pseudo'];
-            header("Location: moncompte.php?id=".$_SESSION['id']);
+            header("Location: index.php?id=".$_SESSION['id']);
         }
         else
         {
@@ -34,7 +33,7 @@ if(isset($_POST['login']))
 ?>
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -76,7 +75,7 @@ if(isset($_POST['login']))
     </form>
 
     <br>
-    <br>
+    <br> -->
     <?php
         if(isset($erreur))
         {
@@ -84,9 +83,9 @@ if(isset($_POST['login']))
            
         }
     ?>
-
+<!-- 
 </div>
 
 
 </body>
-</html>
+</html> -->

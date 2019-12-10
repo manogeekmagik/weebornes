@@ -5,7 +5,7 @@
     include("template/doctype.php");   
 
 //header
-    include("template/header.php"); 
+    include("template/header2.php"); 
 
 /**Connection to the database */
 require_once '../../script-csv/connectdb.php';

@@ -129,6 +129,39 @@ require_once "../../script-csv/connectdb.php"
       </div>
 
       <div class="form-group text-center">
+        <label class="control-label col-sm-2 badge badge-pill badge-success text-white " for="longitude">Longitude :</label>
+        <select  class="custom-select border border-info bg-light" name="longitude" required>
+        <option value="" disabled selected>Longitude</option>
+                <?php
+                $condition = $connexion->prepare("SELECT * FROM access");
+                $executeIsOk = $condition->execute();
+                
+                    while ($cond = $condition->fetch()){
+
+                    echo '<option value="'.$cond["access_id"].'" >'.$cond["nom"].'</option>';
+                    }
+                    ?>
+            </select>
+    </div>
+
+    <div class="form-group text-center">
+        <label class="control-label col-sm-2 badge badge-pill badge-success text-white " for="latitude">Latitude :</label>
+        <select  class="custom-select border border-info bg-light" name="latitude" required>
+        <option value="" disabled selected>Latitude</option>
+                <?php
+                $condition = $connexion->prepare("SELECT * FROM access");
+                $executeIsOk = $condition->execute();
+                
+                    while ($cond = $condition->fetch()){
+
+                    echo '<option value="'.$cond["access_id"].'" >'.$cond["nom"].'</option>';
+                    }
+                    ?>
+            </select>
+    </div>
+
+
+      <div class="form-group text-center">
         <label class="control-label col-sm-2 badge badge-pill badge-success text-white" for="Rue">Rue :</label>
         <input type="text" class="form-control border border-info bg-light mt-1" id="Rue" placeholder="Rue" name="rue" required>
       </div>
