@@ -23,7 +23,7 @@
 
         $request = "CREATE TABLE IF NOT EXISTS powers(
             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            typepower VARCHAR (100)
+            typepower VARCHAR (5)
         )";
         $connexion->exec($request);
 
@@ -49,7 +49,6 @@
         // ici create table 
         $request="CREATE TABLE IF NOT EXISTS departments(
         id INT AUTO_INCREMENT NOT NULL,
-        Numero_departement VARCHAR(255),
         nom VARCHAR(200),
         county_id INT,
         PRIMARY KEY (id),
@@ -115,7 +114,7 @@
         pseudo VARCHAR(200),
         email VARCHAR(200),
         mot_de_passe VARCHAR(100),
-        avatar VARCHAR (255),
+        avatar VARCHAR(250),
         roles_id INT,
         PRIMARY KEY (id),
         FOREIGN KEY (roles_id) REFERENCES roles(id)
@@ -136,17 +135,6 @@
         $connexion->exec($request);
 
         echo 'table commentary créee';
-
-        $CV = "CREATE TABLE IF NOT EXISTS msg(
-            id INT AUTO_INCREMENT NOT NULL,
-            nom VARCHAR(50),
-            prenom VARCHAR(50),
-            email VARCHAR (100),
-            msg VARCHAR(500),
-            PRIMARY KEY (id)
-            )";
-            $connexion->exec($CV);
-            echo 'Table message créée ';
 
     } catch (PDOException $error) {
         die($error);
